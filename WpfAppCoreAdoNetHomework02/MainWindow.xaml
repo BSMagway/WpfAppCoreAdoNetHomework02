@@ -1,0 +1,177 @@
+﻿<Window x:Class="WpfAppCoreAdoNetHomework02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppCoreAdoNetHomework02"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="connectToDB"
+                Content="Connect"
+                Grid.Row="0"
+                Grid.Column="0"
+                IsEnabled="False"
+                Click="connectToDB_Click"
+                FontSize="30"/>
+
+        <ComboBox x:Name="connectToDBSelector"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  SelectionChanged="connectToDBSelector_SelectionChanged"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  FontSize="20">
+
+            <TextBlock Text="MS SQL"/>
+            <TextBlock Text="MySQL"/>
+            <TextBlock Text="PostgreSQL"/>
+
+        </ComboBox>
+
+        <Button x:Name="addInDb"
+                Content="Add"
+                Grid.Row="1"
+                Grid.Column="0"
+                IsEnabled="False"
+                Click="addInDb_Click"
+                FontSize="30"/>
+
+        <ComboBox x:Name="addSelector"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  SelectionChanged="addSelector_SelectionChanged"
+                  IsEnabled="False"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  FontSize="20">
+
+            <TextBlock Text="Add singer or group"/>
+            <TextBlock Text="Add genre"/>
+            <TextBlock Text="Add compact disk"/>
+            <TextBlock Text="Add compact disk in warehouse"/>
+
+
+        </ComboBox>
+
+        <Button x:Name="aggregateButton"
+                Content="Aggregate"
+                Grid.Row="2"
+                Grid.Column="0"
+                IsEnabled="False"
+                Click="aggregateButton_Click"
+                FontSize="30"/>
+
+        <ComboBox x:Name="aggregateSelector"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  SelectionChanged="aggregateSelector_SelectionChanged"
+                  IsEnabled="False"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  FontSize="20">
+
+            <TextBlock Text="All disc on warehouse"/>
+            <TextBlock Text="Average price disc on warehouse"/>
+            <TextBlock Text="How many unique singer or group on warehouse"/>
+
+        </ComboBox>
+
+        <TextBlock x:Name="aggregateResult" 
+                   Grid.Row="3" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="20"/>
+
+        <Button x:Name="storageProcedureButton"
+                Content="Storage procedure"
+                Grid.Row="4"
+                Grid.Column="0"
+                IsEnabled="False"
+                Click="storageProcedureButton_Click"
+                FontSize="20"/>
+
+        <ComboBox x:Name="storageProcedureSelector"
+                  Grid.Row="4"
+                  Grid.Column="1"
+                  SelectionChanged="storageProcedureSelector_SelectionChanged"
+                  IsEnabled="False"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  FontSize="20">
+
+            <TextBlock Text="All discs quantity in warehouse"/>
+            <TextBlock Text="Maximum price for single disc in warehouse"/>
+            <TextBlock Text="Full price all discs in warehouse"/>
+
+        </ComboBox>
+
+        <TextBlock x:Name="storageProcedureResult" 
+                   Grid.Row="5" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="20"/>
+
+        <ListView x:Name="musicShopGrid" 
+                  HorizontalContentAlignment="Center" 
+                  Grid.Row="0" 
+                  Grid.RowSpan="6" 
+                  Grid.Column="2" 
+                  Grid.ColumnSpan="3"
+                  >
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding CompactDisc.AlbumName}" 
+                                    Header="Album name" 
+                                    Width="100" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding CompactDisc.SingerOrGroupName.Name}" 
+                                    Header="Singer or group" 
+                                    Width="100" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding CompactDisc.Genre.Name}" 
+                                    Header="Genre" 
+                                    Width="100" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}" 
+                                    Header="Quantity on warehouse" 
+                                    Width="150" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" 
+                                    Header="Price" 
+                                    Width="100" />
+                </GridView>
+            </ListView.View>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" 
+                            Value="Center" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+    </Grid>
+</Window>
