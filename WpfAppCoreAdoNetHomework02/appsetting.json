@@ -1,5 +1,0 @@
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\USERS\\BS_MA\\SOURCE\\REPOS\\WPFAPPCOREADONETHOMEWORK02\\WPFAPPCOREADONETHOMEWORK02\\MUSICSHOP.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
-  }
-}
